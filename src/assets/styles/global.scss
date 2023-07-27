@@ -1,0 +1,17 @@
+@use './_normalize';
+@use './_fonts';
+@use './_variables';
+
+body {
+	background: var(--bg);
+	font-family: var(--primary-font);
+	color: var(--color-white);
+}
+
+input,
+button,
+textarea,
+div,
+span {
+	font-family: var(--primary-font);
+}
