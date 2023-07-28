@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './Welcome.module.scss';
 
 import welcomeImage from 'assets/images/welcome/welcome.png';
+import arrowDown from 'assets/images/welcome/arrow-down.svg';
 
 export const Welcome = () => {
 	return (
@@ -21,6 +22,10 @@ export const Welcome = () => {
 
 				<div className={styles.backEffect}></div>
 			</div>
+
+			<button className={styles.arrowDown}>
+				<img src={arrowDown} alt='arrow' />
+			</button>
 		</div>
 	);
 };

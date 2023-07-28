@@ -15,3 +15,16 @@ div,
 span {
 	font-family: var(--primary-font);
 }
+
+::-webkit-scrollbar {
+	width: 7px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color-dark-crimson);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-red);
+	border-radius: 10px;
+}
