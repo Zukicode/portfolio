@@ -6,6 +6,7 @@ import { Header } from 'components/Header/Header';
 import { Container } from 'components/Container/Container';
 import { Welcome } from 'components/Welcome/Welcome';
 import { About } from 'components/About/About';
+import { Skills } from 'components/Skills/Skills';
 
 export const App: FC = () => {
 	return (
@@ -15,6 +16,7 @@ export const App: FC = () => {
 			<Container>
 				<Welcome />
 				<About />
+				<Skills />
 			</Container>
 		</div>
 	);
