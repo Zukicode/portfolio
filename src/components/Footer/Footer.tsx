@@ -8,7 +8,7 @@ import { useAppSelector } from 'hooks/useAppSelector';
 
 export const Footer: FC = () => {
 	const { active } = useAppSelector(state => state.language);
-	const redirectToSocial = (social: string) => (window.location.href = social);
+	const redirectToSocial = (social: string) => window.open(social);
 
 	return (
 		<div className={styles.footer}>

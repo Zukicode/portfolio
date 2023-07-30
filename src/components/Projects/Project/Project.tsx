@@ -4,7 +4,7 @@ import styles from './Project.module.scss';
 
 import { IProject } from 'models/IProject';
 
-import { randomColorFromArray } from 'utils/randomColorFromArray';
+import { randomColorFromArray } from 'utils/string/randomColorFromArray';
 
 interface ProjectProps extends IProject {
 	index?: number;
@@ -18,7 +18,7 @@ export const Project: FC<ProjectProps> = ({
 	tags,
 	linkProject,
 }) => {
-	const redirectToProjectPage = () => (window.location.href = linkProject);
+	const redirectToProjectPage = () => window.open(linkProject);
 
 	return (
 		<div

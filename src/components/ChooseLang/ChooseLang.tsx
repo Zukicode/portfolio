@@ -23,6 +23,7 @@ export const ChooseLang: FC = () => {
 		} else {
 			setLang(allLanguageContent[1]);
 		}
+		setVisible(false);
 	};
 
 	return (

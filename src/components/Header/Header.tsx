@@ -10,8 +10,6 @@ import { MobileMenuButton } from './MobileMenuButton/MobileMenu';
 
 import { Link } from 'react-scroll';
 
-import { clickToProjects } from 'utils/scrollToComponent';
-
 type HeaderProps = {};
 
 export const Header: FC<HeaderProps> = () => {
