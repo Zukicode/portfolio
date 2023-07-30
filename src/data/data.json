@@ -26,21 +26,21 @@
 				"title": { "span": "Selected ", "text": "Projects" },
 				"listOfProjects": [
 					{
-						"image": "https://camo.githubusercontent.com/8a548422def1bcce14361eb95cc8dcf8e14877cf017085a1233b05e737d25a95/68747470733a2f2f692e6962622e636f2f4c436344736b6e2f696d6167652e706e67",
+						"image": "images/projects/space.png",
 						"title": "Space Tourism",
 						"description": "Space Tourism This website is about space travel, with a beautiful design and user-friendly interface",
 						"tags": ["React", "Redux Toolkit", "SCSS"],
 						"linkProject": "https://zukicode.github.io/space-tourism/"
 					},
 					{
-						"image": "https://camo.githubusercontent.com/6463a2c5700c5100f4203bb459d6e63fa7abca106f1e19fa1236220c7537a4b1/68747470733a2f2f6763646e622e706272642e636f2f696d616765732f326838757a4231626c724a722e706e673f6f3d31",
+						"image": "images/projects/husk.png",
 						"title": "husk.tv",
 						"description": "It's an interesting project, but looking at it now, I'm sure I'll make it 100 percent better.",
 						"tags": ["React", "Redux Toolkit", "SCSS", "Firebase"],
 						"linkProject": "https://husk-tv.vercel.app/title/tt0033870"
 					},
 					{
-						"image": "https://github.com/Zukicode/plan-craft/raw/main/src/assets/for-github.png",
+						"image": "images/projects/plancraft.png",
 						"title": "Plan Craft",
 						"description": "Plan craft is a site where you can create tasks, but I added interactivity, levels for which you can get skins from Minecraft",
 						"tags": ["React", "Redux Toolkit", "SCSS", "TypeScript"],

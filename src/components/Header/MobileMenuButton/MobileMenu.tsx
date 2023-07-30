@@ -1,8 +1,15 @@
+import { FC } from 'react';
 import styles from './MobileMenuButton.module.scss';
 
-export const MobileMenuButton = () => {
+type MobileMenuButtonProps = {
+	actionMobileMenu: (isClose: boolean) => void;
+};
+
+export const MobileMenuButton: FC<MobileMenuButtonProps> = ({
+	actionMobileMenu,
+}) => {
 	return (
-		<div className={styles.menu}>
+		<div onClick={() => actionMobileMenu(false)} className={styles.menu}>
 			<button>
 				<svg
 					viewBox='0 0 52 52'

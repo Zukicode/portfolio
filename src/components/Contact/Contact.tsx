@@ -1,14 +1,41 @@
-import { FC, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 
 import styles from './Contact.module.scss';
 
 import contactImage from 'assets/images/contact/contact.png';
+
 import { useAppSelector } from 'hooks/useAppSelector';
 
+import emailjs from 'emailjs-com';
+
 export const Contact: FC = () => {
+	const [name, setName] = useState<string>('');
+	const [from, setFrom] = useState<string>('');
+	const [feedback, setFeedback] = useState<string>('');
+	const form: any = useRef();
+
 	const { active } = useAppSelector(state => state.language);
 
 	const [error, setError] = useState<boolean>(false);
+
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+
+		emailjs.send(
+			'service_dp8hp2d',
+			'template_p8uh70a',
+			{
+				to_name: 'zukich',
+				message: `Name: ${name} From: ${from} Message -------> ${feedback}`,
+				reply_to: '',
+			},
+			'6qOQGJ4W_1tVIlq63'
+		);
+
+		setFrom('');
+		setName('');
+		setFeedback('');
+	};
 
 	return (
 		<div className={styles.contact} id='contact'>
@@ -24,7 +51,7 @@ export const Contact: FC = () => {
 				</div>
 
 				<div className={styles.formSection}>
-					<form>
+					<form ref={form} onSubmit={e => handleSubmit(e)}>
 						<div className={styles.box}>
 							<div className={styles.inputSection}>
 								<label htmlFor='name'>{active.content.contact.form.name}</label>
@@ -32,6 +59,8 @@ export const Contact: FC = () => {
 									type='text'
 									placeholder={active.content.contact.form.name}
 									id='name'
+									value={name}
+									onChange={e => setName(e.target.value)}
 								/>
 							</div>
 							<div className={styles.inputSection}>
@@ -42,6 +71,8 @@ export const Contact: FC = () => {
 									type='email'
 									placeholder={active.content.contact.form.email}
 									id='email'
+									value={from}
+									onChange={e => setFrom(e.target.value)}
 								/>
 							</div>
 						</div>
@@ -52,6 +83,8 @@ export const Contact: FC = () => {
 							<textarea
 								placeholder={active.content.contact.form.message}
 								id='message'
+								value={feedback}
+								onChange={e => setFeedback(e.target.value)}
 							/>
 						</div>
 						{error && (

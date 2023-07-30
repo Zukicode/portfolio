@@ -10,9 +10,11 @@ import { MobileMenuButton } from './MobileMenuButton/MobileMenu';
 
 import { Link } from 'react-scroll';
 
-type HeaderProps = {};
+type HeaderProps = {
+	actionMobileMenu: (isClose: boolean) => void;
+};
 
-export const Header: FC<HeaderProps> = () => {
+export const Header: FC<HeaderProps> = ({ actionMobileMenu }) => {
 	return (
 		<div className={styles.header}>
 			<Container>
@@ -76,7 +78,7 @@ export const Header: FC<HeaderProps> = () => {
 					</ul>
 
 					<ChooseLang />
-					<MobileMenuButton />
+					<MobileMenuButton actionMobileMenu={actionMobileMenu} />
 				</div>
 			</Container>
 		</div>

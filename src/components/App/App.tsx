@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 import styles from './App.module.scss';
 
@@ -10,11 +10,20 @@ import { Skills } from 'components/Skills/Skills';
 import { Projects } from 'components/Projects/Projects';
 import { Contact } from 'components/Contact/Contact';
 import { Footer } from 'components/Footer/Footer';
+import { MobileMenu } from 'components/MobileMenu/MobileMenu';
 
 export const App: FC = () => {
+	const [isVisibleMobileMenu, setVisibleMobileMenu] = useState<boolean>(false);
+
+	const actionMobileMenu = (isClose: boolean) => setVisibleMobileMenu(!isClose);
+
 	return (
 		<div className={styles.application}>
-			<Header />
+			<Header actionMobileMenu={actionMobileMenu} />
+			<MobileMenu
+				isVisibleMobileMenu={isVisibleMobileMenu}
+				actionMobileMenu={actionMobileMenu}
+			/>
 
 			<Container>
 				<Welcome />
