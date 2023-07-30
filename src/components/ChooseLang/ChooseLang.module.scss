@@ -1,6 +1,7 @@
 .chooseLang {
 	position: relative;
 	user-select: none;
+	z-index: 50;
 
 	.activeLang {
 		display: flex;

@@ -1,14 +1,29 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 
 import styles from './ChooseLang.module.scss';
 
 import ukraineIcon from 'assets/images/ua.svg';
 import usaIcon from 'assets/images/usa.svg';
+import { useAppSelector } from 'hooks/useAppSelector';
+import { useActions } from 'hooks/useActions';
+
+import allLanguageContent from 'data/data.json';
 
 export const ChooseLang: FC = () => {
 	const [isVisible, setVisible] = useState<boolean>(false);
 
+	const { active } = useAppSelector(state => state.language);
+	const { setLang } = useActions();
+
 	const toggleVisible = () => setVisible(prev => !prev);
+
+	const changeLanguage = (lang: string) => {
+		if (lang === 'EN') {
+			setLang(allLanguageContent[0]);
+		} else {
+			setLang(allLanguageContent[1]);
+		}
+	};
 
 	return (
 		<div className={styles.chooseLang}>
@@ -19,7 +34,7 @@ export const ChooseLang: FC = () => {
 					</svg>
 				</span>
 
-				<p>EN</p>
+				<p>{active.language}</p>
 			</div>
 
 			<div
@@ -29,14 +44,28 @@ export const ChooseLang: FC = () => {
 						: styles.chooseLangOpen
 				}
 			>
-				<div className={styles.lang}>
+				<div
+					onClick={() => changeLanguage('UA')}
+					className={
+						active.language === 'UA'
+							? `${styles.lang} ${styles.active}`
+							: styles.lang
+					}
+				>
 					<div className={styles.icon}>
 						<img src={ukraineIcon} alt='countryIcon' />
 					</div>
 					<p>UA</p>
 				</div>
 
-				<div className={`${styles.lang} ${styles.active}`}>
+				<div
+					onClick={() => changeLanguage('EN')}
+					className={
+						active.language === 'EN'
+							? `${styles.lang} ${styles.active}`
+							: styles.lang
+					}
+				>
 					<div className={styles.icon}>
 						<img src={usaIcon} alt='countryIcon' />
 					</div>

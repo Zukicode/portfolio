@@ -1,16 +1,19 @@
+import { useAppSelector } from 'hooks/useAppSelector';
 import styles from './Skills.module.scss';
 
 import { skillArray } from 'utils/data/skills';
 
 export const Skills = () => {
+	const { active } = useAppSelector(state => state.language);
+
 	return (
-		<div className={styles.skills}>
+		<div className={styles.skills} id='skills'>
 			<div className={styles.text}>
-				<h1>🗼 Skills</h1>
+				<h1>{active.content.skills.title}</h1>
 				<p>
-					I am currently looking for an opportunity to join a team{' '}
-					<span>that is developing and eager to learn,</span> using all the
-					opportunities in its field.
+					{active.content.skills.description.text}{' '}
+					<span>{active.content.skills.description.span}</span>{' '}
+					{active.content.skills.description.text2}
 				</p>
 			</div>
 

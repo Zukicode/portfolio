@@ -44,17 +44,22 @@
 			@media (max-width: 768px) {
 				display: none;
 			}
-
-			li {
-				font-size: 16px;
-				font-family: var(--second-font);
-				border-bottom: 1px solid transparent;
-				cursor: pointer;
-				transition: all 0.2s ease-in-out;
-
-				&:hover {
-					border-bottom: 1px solid var(--color-red-light);
+			a {
+				&.active {
 					color: var(--color-red-light);
+				}
+
+				li {
+					font-size: 16px;
+					font-family: var(--second-font);
+					border-bottom: 1px solid transparent;
+					cursor: pointer;
+					transition: all 0.2s ease-in-out;
+
+					&:hover {
+						border-bottom: 1px solid var(--color-red-light);
+						color: var(--color-red-light);
+					}
 				}
 			}
 		}

@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import allLanguageContent from 'data/data.json';
+
 export interface LanguageState {
-	active: string;
+	active: any;
 }
 
 const initialState: LanguageState = {
-	active: 'EN',
+	active: allLanguageContent[0],
 };
 
 export const languageSlice = createSlice({

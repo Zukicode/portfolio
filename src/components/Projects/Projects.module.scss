@@ -1,0 +1,31 @@
+.projects {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	margin-top: 150px;
+
+	.header {
+		h1 {
+			color: var(--color-white);
+
+			@media (max-width: 400px) {
+				font-size: 26px;
+				text-align: center;
+			}
+
+			@media (max-width: 320px) {
+				font-size: 22px;
+			}
+
+			span {
+				opacity: 0.6;
+			}
+		}
+	}
+
+	.listOfProject {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+	}
+}

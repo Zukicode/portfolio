@@ -5,20 +5,19 @@ import styles from './About.module.scss';
 import codingImage from 'assets/images/about/coding.jpg';
 import coding2Image from 'assets/images/about/coding2.jpg';
 import coding3Image from 'assets/images/about/coding3.jpg';
+import { useAppSelector } from 'hooks/useAppSelector';
 
 export const About: FC = () => {
+	const { active } = useAppSelector(state => state.language);
+
 	return (
-		<div className={styles.about}>
+		<div className={styles.about} id='about'>
 			<div className={styles.text}>
-				<h4>A bit about me</h4>
+				<h4>{active.content.about.title}</h4>
 
 				<p>
-					<span>
-						Hi, I'm a front-end developer from Ukraine who is passionate about
-						web programming.
-					</span>{' '}
-					I like to learn new things, I'm currently studying software
-					engineering in college, and I enjoy solving complex problems.
+					<span>{active.content.about.description.span}</span>{' '}
+					{active.content.about.description.text}
 				</p>
 			</div>
 			<div className={styles.images}>

@@ -1,20 +1,28 @@
-import React from 'react';
+import { FC } from 'react';
 
 import styles from './Welcome.module.scss';
 
 import welcomeImage from 'assets/images/welcome/welcome.png';
 import arrowDown from 'assets/images/welcome/arrow-down.svg';
 
-export const Welcome = () => {
+import { Link } from 'react-scroll';
+
+import { useAppSelector } from 'hooks/useAppSelector';
+
+export const Welcome: FC = () => {
+	const { active } = useAppSelector(state => state.language);
+
 	return (
-		<div className={styles.welcome}>
+		<div className={styles.welcome} id='welcome'>
 			<div className={styles.content}>
 				<div className={styles.text}>
-					<h1>Sergiy Khachko</h1>
-					<p>&gt; Front-end developer</p>
+					<h1>{active.content.welcome.name}</h1>
+					<p>&gt; {active.content.welcome.description}</p>
 				</div>
 
-				<button>About Me</button>
+				<Link to='about' spy={true} smooth={true} offset={-10} duration={700}>
+					<button>{active.content.welcome.button}</button>
+				</Link>
 			</div>
 
 			<div className={styles.image}>
@@ -24,7 +32,9 @@ export const Welcome = () => {
 			</div>
 
 			<button className={styles.arrowDown}>
-				<img src={arrowDown} alt='arrow' />
+				<Link to='skills' spy={true} smooth={true} offset={-10} duration={700}>
+					<img src={arrowDown} alt='arrow' />
+				</Link>
 			</button>
 		</div>
 	);

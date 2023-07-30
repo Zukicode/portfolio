@@ -1,0 +1,55 @@
+.footer {
+	width: 100%;
+	border-top: 1px solid rgba(#ffffff, 0.1);
+	display: flex;
+	padding: 30px 0px;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 20px;
+
+	.socials {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+
+		.social {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 10px;
+			border-radius: 50px;
+			background: rgba($color: #ffffff, $alpha: 0.1);
+			cursor: pointer;
+			transition: all 0.4s ease-in-out;
+
+			&:hover {
+				opacity: 0.3;
+			}
+
+			img {
+				width: 30px;
+				height: 30px;
+				opacity: 0.9;
+			}
+		}
+	}
+
+	.createdby {
+		p {
+			@media (max-width: 400px) {
+				font-size: 14px;
+				text-align: center;
+			}
+
+			@media (max-width: 320px) {
+				font-size: 12px;
+				text-align: center;
+			}
+
+			span {
+				color: var(--color-red-light);
+			}
+		}
+	}
+}
