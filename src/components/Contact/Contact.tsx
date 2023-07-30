@@ -21,20 +21,27 @@ export const Contact: FC = () => {
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 
-		emailjs.send(
-			'service_dp8hp2d',
-			'template_p8uh70a',
-			{
-				to_name: 'zukich',
-				message: `Name: ${name} From: ${from} Message -------> ${feedback}`,
-				reply_to: '',
-			},
-			'6qOQGJ4W_1tVIlq63'
-		);
-
-		setFrom('');
-		setName('');
-		setFeedback('');
+		if (name === '' || from === '' || feedback === '') {
+			setError(true);
+		} else {
+			if (name.length > 3 && from.length > 3 && feedback.length > 3) {
+				emailjs.send(
+					'service_dp8hp2d',
+					'template_p8uh70a',
+					{
+						to_name: 'zukich',
+						message: `Name: ${name} From: ${from} Message -------> ${feedback}`,
+						reply_to: '',
+					},
+					'6qOQGJ4W_1tVIlq63'
+				);
+			} else {
+				setError(true);
+			}
+			setFrom('');
+			setName('');
+			setFeedback('');
+		}
 	};
 
 	return (
